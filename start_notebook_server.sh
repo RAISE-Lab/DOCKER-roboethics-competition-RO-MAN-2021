@@ -14,4 +14,4 @@ cd ${NOTEBOOK_CODE}
 nohup jupyter notebook -y --allow-root --no-browser --ip='localhost' --NotebookApp.token='' --NotebookApp.password='' --MappingKernelManager.default_kernel_name=python2 &
 set +v
 sleep 2
-echo "Notebook server is now accessible at http://localhost:8888/tree?"
+echo "Notebook server is now accessible at http://localhost:8888"
