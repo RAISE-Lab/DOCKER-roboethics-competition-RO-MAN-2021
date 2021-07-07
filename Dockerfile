@@ -17,7 +17,7 @@ RUN apt install -q -y jupyter-notebook python-jupyter-console python-jupyter-sph
 # Following sections from icub-training docker
 # See https://github.com/icub-training/icub-training.github.io/blob/master/dockerfiles/Dockerfile
 # Install graphics
-RUN DEBIAN_FRONTEND=noninteractive apt install -q -y xfce4 xfce4-goodies xserver-xorg-video-dummy xserver-xorg-legacy x11vnc && \
+RUN DEBIAN_FRONTEND=noninteractive apt install -q -y xfce4 xfce4-goodies xserver-xorg-video-dummy xserver-xorg-legacy x11vnc firefox && \
     sed -i 's/allowed_users=console/allowed_users=anybody/' /etc/X11/Xwrapper.config
 COPY xorg.conf /etc/X11/xorg.conf
 

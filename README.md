@@ -23,10 +23,21 @@ Notebook server is now accessible at http://localhost:8888/tree?
 - The robot inside the simulation is available through the link http://localhost:6080 
 - The competition tutorials can be accessed through the link http://localhost:8888
 
+To stop working, just close the shell/stop the docker container.
 
-To be discueed:
+To resume work, run
+```
+$ make continue
+...
+root@robotlab-lt1:/tiago_public_ws# start_simulator.sh 
+...
+Simulation started successfully, access it with your web browser via http://localhost:6080
+root@robotlab-lt1:/tiago_public_ws# start_notebook_server.sh
+...
+Notebook server is now accessible at http://localhost:8888/tree?
+```
 
-### Collect & submit results
+### To be discussed: Collect & submit results
 ```
 $ make pack
 ...
@@ -36,8 +47,21 @@ Generating notebook_export.tar.bz2
 Submit the file `notebook_export.tar.bz2` in the current directory
 
 
+### To be tested: Update docker image
+In case you need to update your docker image/container to a new version and want to keep your current notebook contents:
+1. Run `make pack`, creating `notebook_export.tar.bz2`
+2. Run `make pull`, updating the docker image
+3. Run `make clean`, stopping the current container and deleting all modifications inside the container
+4. Run `make run`, starting the new container
+5. Run `make unpack`, copying your previous notebooks into the new container
 
-## Docker build workflow
+
+### FAQ
+1. `docker: Error response from daemon: Conflict. The container name "/r2d2_temp_..." is already in use by container ....`
+The competition container is already running
+
+
+## Competition team: Docker build workflow
 1. Build docker image as tag `latest`
 ```
 $ make
@@ -55,8 +79,5 @@ $ make promote
 ```
 $ make push_table
 ```
-
-TODO: more documentation here
-
 Please see the Makefile for all available options.
 

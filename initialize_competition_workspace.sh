@@ -10,7 +10,7 @@ fi
 
 set -v
 mkdir -p /competition_ws/src
-git clone https://github.com/raise-lab/r2d2_competition /competition_ws/src/r2d2_competition
+git clone --recursive https://github.com/raise-lab/r2d2_competition /competition_ws/src/r2d2_competition
 cd /competition_ws
 catkin init
 catkin build
