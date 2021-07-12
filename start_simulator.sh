@@ -26,7 +26,7 @@ sleep 1
 
 set +v
 # Launch simulation
-nohup roslaunch tiago_gazebo tiago_gazebo.launch public_sim:=true robot:=steel > /tmp/ros.log 2>&1 &
+nohup roslaunch r2d2_competition_api simulation.launch > /tmp/ros.log 2>&1 &
 #roslaunch r2d2_competition simulator.launch
 
 sleep 2

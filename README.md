@@ -1,6 +1,5 @@
 The docker build repository for the R2D2 competition
 
-
 ## Participant workflow
 To initial start the simulation and programming environment
 ```
@@ -38,6 +37,14 @@ Notebook server is now accessible at http://localhost:8888/tree?
 ```
 
 ### To be discussed: Collect & submit results
+Inside the docker:
+Call `pack_code.sh`, this creates the file `/root/notebook_export.tar.bz2`:
+```
+TODO: output
+```
+You can use the browser to submit it.
+
+Alternatively, outside of the docker:
 ```
 $ make pack
 ...
@@ -58,8 +65,21 @@ In case you need to update your docker image/container to a new version and want
 
 ### FAQ
 1. `docker: Error response from daemon: Conflict. The container name "/r2d2_temp_..." is already in use by container ....`
-The competition container is already running
+The competition container is already running, you can remove it with `make clean`.
 
+2. I think i am triggering a bug in Gazebo, were is the log file?
+It's located in `/tmp/ros.log`
+
+3. Can I develop without the docker/software-rendering/jupyter-notebook
+Yes. But then you are a bit on your own. And finally things will have to run in this docker.
+You can use http://wiki.ros.org/Robots/TIAGo/Tutorials/Installation/TiagoSimulation as a starting point for your setup.
+
+4. Gazebo has crash, how do I restart it?
+TODO: Clean way of doing this
+
+
+## Competition team: Evaluation & video recording workflow
+For video recording the whole screen needs to be captured. For this a tool like ffmpeg or vokoscreen can be used. It can be started from python. The disadvantage is the non-determinism because the execution time is cpu-load dependant. Using a video camera output of gazebo, and further processing could help.
 
 ## Competition team: Docker build workflow
 1. Build docker image as tag `latest`
@@ -80,4 +100,19 @@ $ make promote
 $ make push_table
 ```
 Please see the Makefile for all available options.
+
+## FAQ
+### Docker registry login:
+1. generate personal access token:
+github user profile -> developer settings -> personal access token -> activate write:packages -> generate token
+2. login
+```
+echo access_token | | docker login ghcr.io -u github_user_name --password-stdin
+```
+### Edit competition.yaml in a graphical editor
+Run this:
+```
+leafpad /competition_ws/src/r2d2_competition/r2d2_competition_api/config/competition.yaml
+```
+
 

@@ -27,10 +27,12 @@ RUN apt install net-tools && \
     git clone --depth=1 https://github.com/novnc/websockify /opt/novnc/utils/websockify && \
     echo "<html><head><meta http-equiv=\"Refresh\" content=\"0; url=vnc.html?autoconnect=true&reconnect=true&reconnect_delay=1000&resize=scale&quality=9\"></head></html>" > /opt/novnc/index.html
 
+RUN apt install -q -y leafpad
 
 COPY start_simulator.sh /usr/local/bin
 COPY start_notebook_server.sh /usr/local/bin
 COPY initialize_competition_workspace.sh /usr/local/bin
+COPY pack_code.sh /usr/local/bin
 
 ENV DISPLAY=:1
 
