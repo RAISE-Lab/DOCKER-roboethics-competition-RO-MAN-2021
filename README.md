@@ -74,8 +74,15 @@ It's located in `/tmp/ros.log`
 Yes. But then you are a bit on your own. And finally things will have to run in this docker.
 You can use http://wiki.ros.org/Robots/TIAGo/Tutorials/Installation/TiagoSimulation as a starting point for your setup.
 
-4. Gazebo has crash, how do I restart it?
-TODO: Clean way of doing this
+4. Gazebo has crashed, how do I restart it?
+```
+killall roslaunch
+```
+To restart run
+```
+source /competition_ws/devel/setup.bash
+roslaunch r2d2_competition_api simulation.launch
+```
 
 
 ## Competition team: Evaluation & video recording workflow
