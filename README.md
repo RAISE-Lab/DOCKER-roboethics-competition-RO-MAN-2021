@@ -1,4 +1,4 @@
-The docker build repository for the R2D2 competition
+The docker build repository for the Roboethics competition
 
 ## Participant workflow
 To initial start the simulation and programming environment
@@ -7,7 +7,7 @@ $ make run
 echo "Starting competition container named r2d2_temp_awerner"
 Starting competition container named r2d2_temp_awerner
 docker run -it --net host --name r2d2_temp_awerner ghcr.io/raise-lab/r2d2_competition:latest
-R2D2 Competition Docker Image
+Roboethics Competition Docker Image
 If you close this window, all applications in the docker will be terminated
 root@robotlab-lt1:/tiago_public_ws# initialize_competition_workspace.sh
 ...
