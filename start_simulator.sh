@@ -26,8 +26,8 @@ sleep 1
 
 set +v
 # Launch simulation
-nohup roslaunch r2d2_competition_api simulation.launch > /tmp/ros.log 2>&1 &
-#roslaunch r2d2_competition simulator.launch
+nohup roslaunch roboethics_competition_api simulation.launch > /tmp/ros.log 2>&1 &
+#roslaunch roboethics_competition simulator.launch
 
 sleep 2
 echo "Simulation started successfully, access it with your web browser via http://localhost:6080"

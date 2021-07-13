@@ -4,9 +4,9 @@ The docker build repository for the Roboethics competition
 To initial start the simulation and programming environment
 ```
 $ make run
-echo "Starting competition container named r2d2_temp_awerner"
-Starting competition container named r2d2_temp_awerner
-docker run -it --net host --name r2d2_temp_awerner ghcr.io/raise-lab/r2d2_competition:latest
+echo "Starting competition container named roboethics_temp_awerner"
+Starting competition container named roboethics_temp_awerner
+docker run -it --net host --name roboethics_temp_awerner ghcr.io/raise-lab/roboethics_competition:latest
 Roboethics Competition Docker Image
 If you close this window, all applications in the docker will be terminated
 root@robotlab-lt1:/tiago_public_ws# initialize_competition_workspace.sh
@@ -64,7 +64,7 @@ In case you need to update your docker image/container to a new version and want
 
 
 ### FAQ
-1. `docker: Error response from daemon: Conflict. The container name "/r2d2_temp_..." is already in use by container ....`
+1. `docker: Error response from daemon: Conflict. The container name "/roboethics_temp_..." is already in use by container ....`
 The competition container is already running, you can remove it with `make clean`.
 
 2. I think i am triggering a bug in Gazebo, were is the log file?
@@ -81,7 +81,7 @@ killall roslaunch
 To restart run
 ```
 source /competition_ws/devel/setup.bash
-roslaunch r2d2_competition_api simulation.launch
+roslaunch roboethics_competition_api simulation.launch
 ```
 
 
@@ -119,7 +119,7 @@ echo access_token | | docker login ghcr.io -u github_user_name --password-stdin
 ### Edit competition.yaml in a graphical editor
 Run this:
 ```
-leafpad /competition_ws/src/r2d2_competition/r2d2_competition_api/config/competition.yaml
+leafpad /competition_ws/src/roboethics_competition/roboethics_competition_api/config/competition.yaml
 ```
 
 

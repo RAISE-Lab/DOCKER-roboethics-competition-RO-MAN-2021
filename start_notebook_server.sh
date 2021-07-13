@@ -9,7 +9,7 @@ if [ ! -f /competition_ws/devel/setup.bash ]; then
 fi
 source /competition_ws/devel/setup.bash
 set -v
-NOTEBOOK_CODE=/competition_ws/src/r2d2_competition/notebook
+NOTEBOOK_CODE=/competition_ws/src/roboethics_competition/notebook
 cd ${NOTEBOOK_CODE}
 nohup jupyter notebook -y --allow-root --no-browser --ip='localhost' --NotebookApp.token='' --NotebookApp.password='' --MappingKernelManager.default_kernel_name=python2 &
 set +v
