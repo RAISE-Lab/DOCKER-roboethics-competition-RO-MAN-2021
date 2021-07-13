@@ -7,7 +7,7 @@ Docker related:
 - [ ] evaluate simulation performance of having no GPU
     - [ ] check rocker to have a working nvidia setup
     - [ ] check if non-nvidia GPU can be supported under linux with less drama
-
+- [ ] fix "Could not locate package roboethics_competition_api when sourceing workspace
 
 Competition related:
 - [ ] Discuss user submission workflow
