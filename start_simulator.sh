@@ -17,10 +17,10 @@ cd /competition_ws/
 # https://github.com/icub-training/icub-training.github.io/blob/master/dockerfiles/start-vnc-session.sh
 pkill -9 -f "vnc" && pkill -9 -f "xf" && sudo pkill -9 Xorg
 rm -f /tmp/.X1-lock
-nohup X ${DISPLAY} -config /etc/X11/xorg.conf > /dev/null 2>&1 &
+nohup X ${DISPLAY} -config /etc/X11/xorg.conf > /tmp/xorg.log 2>&1 &
 nohup startxfce4 > /dev/null 2>&1 &
-nohup x11vnc -localhost -display ${DISPLAY} -N -forever -shared -bg > /dev/null 2>&1
-nohup /opt/novnc/utils/launch.sh --web /opt/novnc --vnc localhost:5901 --listen 6080 > /dev/null 2>&1 &
+nohup x11vnc -localhost -display ${DISPLAY} -N -forever -shared -bg > /tmp/x11vnc.log 2>&1
+nohup /opt/novnc/utils/launch.sh --web /opt/novnc --vnc localhost:5901 --listen 6080 > /tmp/novnc.log 2>&1 &
 
 sleep 1
 
@@ -29,7 +29,7 @@ set +v
 nohup roslaunch roboethics_competition_api simulation.launch > /tmp/ros.log 2>&1 &
 #roslaunch roboethics_competition simulator.launch
 
-sleep 2
+#sleep 2
 echo "Simulation started successfully, access it with your web browser via http://localhost:6080"
 echo "Alternatively you can use a vnc client and connect to vnc://localhost:1"
 echo "To interact with the simulation, you can start the notebook server using start_notebook_server.sh"
