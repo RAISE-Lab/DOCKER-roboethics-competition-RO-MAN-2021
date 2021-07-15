@@ -11,7 +11,7 @@ promote: roboethics_competition_promote
 
 run:
 	echo "Starting competition container named roboethics_temp_${USER}"
-	docker run -it --net host --name roboethics_temp_${USER} ghcr.io/raise-lab/roboethics_competition:latest
+	docker run ${DOCKER_OPTIONS} -it --net host --name roboethics_temp_${USER} ghcr.io/raise-lab/roboethics_competition:latest
 
 continue:
 	echo "Continuing your session in the container named roboethics_temp_${USER}"

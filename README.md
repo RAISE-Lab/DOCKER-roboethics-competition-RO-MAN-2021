@@ -64,17 +64,17 @@ In case you need to update your docker image/container to a new version and want
 
 
 ### FAQ
-1. `docker: Error response from daemon: Conflict. The container name "/roboethics_temp_..." is already in use by container ....`
+#### `docker: Error response from daemon: Conflict. The container name "/roboethics_temp_..." is already in use by container ....`
 The competition container is already running, you can remove it with `make clean`.
 
-2. I think i am triggering a bug in Gazebo, were is the log file?
+#### I think i am triggering a bug in Gazebo, were is the log file?
 It's located in `/tmp/ros.log`
 
-3. Can I develop without the docker/software-rendering/jupyter-notebook
+#### Can I develop without the docker/software-rendering/jupyter-notebook
 Yes. But then you are a bit on your own. And finally things will have to run in this docker.
 You can use http://wiki.ros.org/Robots/TIAGo/Tutorials/Installation/TiagoSimulation as a starting point for your setup.
 
-4. Gazebo has crashed, how do I restart it?
+#### Gazebo has crashed, how do I restart it?
 ```
 killall roslaunch
 ```
@@ -83,7 +83,17 @@ To restart run
 source /competition_ws/devel/setup.bash
 roslaunch roboethics_competition_api simulation.launch
 ```
-
+#### How can i start the docker using my native GPU
+Instead of `make run` use
+```
+DOCKER_OPTIONS="--env DISPLAY --ipc=host --volume=/tmp/.X11-unix:/tmp/.X11-unix:rw --device /dev/dri:/dev/dri"
+```
+then to run the simulation instead of `start_simulator.sh`
+```
+cd /competiton_ws
+source devev/setup.bash
+roslaunch roboethics_competition_api simulation.launch
+```
 
 ## Competition team: Evaluation & video recording workflow
 For video recording the whole screen needs to be captured. For this a tool like ffmpeg or vokoscreen can be used. It can be started from python. The disadvantage is the non-determinism because the execution time is cpu-load dependant. Using a video camera output of gazebo, and further processing could help.
