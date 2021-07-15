@@ -1,6 +1,6 @@
 The docker build repository for the Roboethics competition
 
-## Participant workflow
+## Workflow for Participants
 To initial start the simulation and programming environment
 ```
 $ make run
@@ -84,21 +84,23 @@ source /competition_ws/devel/setup.bash
 roslaunch roboethics_competition_api simulation.launch
 ```
 #### How can i start the docker using my native GPU
-Instead of `make run` use
+Before running `make run`, use
 ```
-DOCKER_OPTIONS="--env DISPLAY --ipc=host --volume=/tmp/.X11-unix:/tmp/.X11-unix:rw --device /dev/dri:/dev/dri"
+DOCKER_OPTIONS="--env DISPLAY --ipc=host --volume=/tmp/.X11-unix:/tmp/.X11-unix:rw --device /dev/dri:/dev/dri -p 6080:6080 -p 8888:8888"
 ```
 then to run the simulation instead of `start_simulator.sh`
 ```
 cd /competiton_ws
-source devev/setup.bash
+source devel/setup.bash
 roslaunch roboethics_competition_api simulation.launch
 ```
 
-## Competition team: Evaluation & video recording workflow
+## Information for Organizing Team
+Ignore this section if you are a participant.
+### Evaluation & video recording workflow
 For video recording the whole screen needs to be captured. For this a tool like ffmpeg or vokoscreen can be used. It can be started from python. The disadvantage is the non-determinism because the execution time is cpu-load dependant. Using a video camera output of gazebo, and further processing could help.
 
-## Competition team: Docker build workflow
+### Docker build workflow
 1. Build docker image as tag `latest`
 ```
 $ make
@@ -118,15 +120,15 @@ $ make push_table
 ```
 Please see the Makefile for all available options.
 
-## FAQ
-### Docker registry login:
+### FAQ
+#### Docker registry login:
 1. generate personal access token:
 github user profile -> developer settings -> personal access token -> activate write:packages -> generate token
 2. login
 ```
 echo access_token | | docker login ghcr.io -u github_user_name --password-stdin
 ```
-### Edit competition.yaml in a graphical editor
+#### Edit competition.yaml in a graphical editor
 Run this:
 ```
 leafpad /competition_ws/src/roboethics_competition/roboethics_competition_api/config/competition.yaml
