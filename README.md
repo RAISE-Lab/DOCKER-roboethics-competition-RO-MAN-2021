@@ -84,6 +84,11 @@ source /competition_ws/devel/setup.bash
 roslaunch roboethics_competition_api simulation.launch
 ```
 #### How can i start the docker using my native GPU
+
+See [ROS Documentation](http://wiki.ros.org/docker/Tutorials/Hardware%20Acceleration) for support on a per-vendor basis.
+
+Below is a quickstart guide for Intel GPUs:
+
 Before running `make run`, use
 ```
 DOCKER_OPTIONS="--env DISPLAY --ipc=host --volume=/tmp/.X11-unix:/tmp/.X11-unix:rw --device /dev/dri:/dev/dri -p 6080:6080 -p 8888:8888"
