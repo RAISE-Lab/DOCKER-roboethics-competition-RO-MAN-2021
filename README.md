@@ -91,8 +91,14 @@ Below is a quickstart guide for Intel GPUs:
 
 Before running `make run`, use
 ```
-DOCKER_OPTIONS="--env DISPLAY --ipc=host --volume=/tmp/.X11-unix:/tmp/.X11-unix:rw --device /dev/dri:/dev/dri -p 6080:6080 -p 8888:8888"
+export DOCKER_OPTIONS="--env DISPLAY --ipc=host --volume=/tmp/.X11-unix:/tmp/.X11-unix:rw --device /dev/dri:/dev/dri -p 6080:6080 -p 8888:8888 --gpus=all"
 ```
+If you are using a Nvidia GPU, additionally run this
+```
+make roboethics_competition_nvidia
+export IMAGE_SUFFIX=:nvidia
+```
+
 then to run the simulation instead of `start_simulator.sh`
 ```
 cd /competiton_ws
