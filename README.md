@@ -36,22 +36,8 @@ root@robotlab-lt1:/tiago_public_ws# start_notebook_server.sh
 Notebook server is now accessible at http://localhost:8888/tree?
 ```
 
-### To be discussed: Collect & submit results
-Inside the docker:
-Call `pack_code.sh`, this creates the file `/root/notebook_export.tar.bz2`:
-```
-TODO: output
-```
-You can use the browser to submit it.
-
-Alternatively, outside of the docker:
-```
-$ make pack
-...
-Generating notebook_export.tar.bz2
-...
-```
-Submit the file `notebook_export.tar.bz2` in the current directory
+### Submission Guidelines
+Please find all information for submitting your designs on our [competition website](https://competition.raiselab.ca/participants/submission-guidelines).
 
 
 ### To be tested: Update docker image

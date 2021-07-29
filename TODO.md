@@ -10,11 +10,11 @@ Docker related:
 - [ ] fix "Could not locate package roboethics_competition_api when sourceing workspace
 
 Platform related:
-- [ ] add bed furniture to 2nd bedroom
-- [ ] add models for other people and objects
+- [x] add bed furniture to 2nd bedroom
+- [x] add models for other people and objects
 
 Competition related:
-- [ ] Discuss user submission workflow
+- [x] Discuss user submission workflow
 - [ ] Test docker update procedure
-- [ ] Write basic documentation about this docker environment
+- [x] Write basic documentation about this docker environment
 
